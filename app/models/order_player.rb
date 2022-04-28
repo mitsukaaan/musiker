@@ -1,0 +1,2 @@
+class OrderPlayer < ApplicationRecord
+end
