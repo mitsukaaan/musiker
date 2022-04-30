@@ -1,1 +1,12 @@
 <h3>新規オーダー入力</h3>
+<%= form_with model:Order.new do |f| %>
+  <h5>お名前<%= current_customer.last_name %></h5>
+  <h5>メールアドレス<%= current_customer.email %></h5>
+  <h5>演奏住所(都道府県名から）<%= f.text_field :address %></h5>
+  <h5>最寄駅（◯線◯◯駅)<%= f.text_field :from_station %></h5>
+  <h5>日程</h5>
+  <h5>演奏希望編成<%= f.select :style,Order.styles.keys.map {|k| [I18n.t("enums.order.style.#{k}"), k]} %></h5>
+  <h5>目的<%= f.text_field :purpose %></h5>
+  <h5>リクエストの有無</h5>
+  <h5>その他ご要望<%= f.text_field :request %></h5>
+<% end %>
