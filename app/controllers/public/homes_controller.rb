@@ -4,4 +4,7 @@ class Public::HomesController < ApplicationController
 
     def price
     end
+    
+    def about
+    end 
 end

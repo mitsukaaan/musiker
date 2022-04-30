@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
   root to: 'public/homes#top'
   get 'price' => 'public/homes#price'
+  get 'about' => 'public/homes#about'
   get 'orders/attention' => 'public/orders#attention'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
