@@ -9,3 +9,12 @@ ja:
     vn_vn_pf: "<3名>ヴァイオリン＋ヴァイオリン＋チェロ"
     vn_vc_pf: "<3名>ヴァイオリン＋チェロ＋ピアノ"
     vn_vn_va_vc: "<4名>ヴァイオリン＋ヴァイオリン＋ヴィオラ＋チェロ"
+   piece:
+    anything: "おまかせ"
+    half_request: "半リクエスト"
+    all_request: "全リクエスト"
+   purpose:
+    hobby: "趣味・鑑賞"
+    ensamble: "アンサンブル・共演"
+    lesson: "習い事前の相談として"
+    other: "その他（備考欄に具体的にお書きください）"
