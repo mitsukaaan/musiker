@@ -9,11 +9,11 @@
 
 
 <h3>新規オーダー入力</h3>
-<%= form_with model:Order.new do |f| %>
+<%= form_with model:@order,url:orders_confirm_path do |f| %>
   <h5>お名前:<%= current_customer.last_name + current_customer.first_name%></h5>
   <h5>メールアドレス:<%= current_customer.email %></h5>
   <h5>演奏希望住所(都道府県名から）:<%= f.text_field :address %></h5>
-  <h5>最寄駅（◯線◯◯駅):<%= f.text_field :from_station %></h5>
+  <h5>最寄駅（◯線◯◯駅):<%= f.text_field :station %></h5>
   <h5>日程<%= week_calendar events: @reservations do |date, reservations| %>
         <%= date.day %>
         <% end %>
@@ -25,4 +25,5 @@
   　　　曲名を入力してください　目安：半リクエスト→５曲程度　全リクエスト→８曲程度
   　　<%= f.text_field :request %></h5>
   <h5>備考欄:<%= f.text_field :other %></h5>
+  <%= f.submit"確認画面へ" %>
 <% end %>

@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   get 'price' => 'public/homes#price'
   get 'about' => 'public/homes#about'
   get 'new' => 'public/homes#new'
-  get 'orders/attention' => 'public/orders#attention'
+  post 'orders/attention' => 'public/orders#attention'
+  post 'orders/confirm' => 'public/orders#confirm'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+
   scope module: :public do
-    resources :orders, only: [:new,:index,:show]
+    resources :orders, only: [:new,:index,:show,:edit]
   end
-  
+
   scope module: :public do
     resources :customers, only: [:edit,:show]
   end
