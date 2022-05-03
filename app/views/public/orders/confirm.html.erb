@@ -1,19 +1,21 @@
 <div class ="progressbar">
-  <div class ="item">STEP.1 <br>オーダーご入力</div>
-  <div class ="item active">STEP.2<br>ご確認</div>
-  <div class ="item">STEP.3<br>注意事項</div>
-  <div class ="item">STEP.4<br>完了</div>
-</div>
+  <div class ="item">STEP.1 <br>日程選択</div>
+  <div class ="item">STEP.2<br>オーダーご入力</div>
+  <div class ="item active">STEP.3<br>ご確認</div>
+  <div class="triangle2"></div>
+  <div class ="item">STEP.4<br>注意事項</div>
+  <div class = "item">STEP.5<br>完了</div>
 
 <h5>確認画面</h5>
 
 <h5>お客様情報</h5>
  <%= form_with model:@order,url:orders_attention_path do |f|  %>
-  <% @train_price = 1000 %>
+
  お名前:<%= current_customer.last_name + current_customer.first_name %>
  メールアドレス:<%= current_customer.email %>
  お電話番号:<%= current_customer.telephone %>
  演奏住所:<%= @order.address %>
+ <%= f.hidden_field:address, :value => @order.address %>
  最寄駅:<%= @order.station %>
 
 <h5>オーダー内容</h5>
@@ -23,7 +25,8 @@
  リクエストの有無:<%= @order.piece_i18n %>
  リクエスト曲(希望の場合）:<%= @order.request %>
  備考:<%= @order.other %>
- 料金:<%= (@train_price + @price) %>
+ <% @train_price = 1000 %>
+ 料金:¥<%#= (@train_price + @price) %>
 
 
  <%= f.submit"次の画面へ" %>

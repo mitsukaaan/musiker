@@ -1,9 +1,20 @@
 <div class ="progressbar">
-  <div class ="item">STEP.1 <br>オーダーご入力</div>
-  <div class ="item">STEP.2<br>ご確認</div>
-  <div class ="item active">STEP.3<br>注意事項</div>
-  <div class ="item">STEP.4<br>完了</div>
-</div>
+  <div class ="item">STEP.1 <br>日程選択</div>
+  <div class ="item">STEP.2<br>オーダーご入力</div>
+  <div class ="item">STEP.3<br>ご確認</div>
+  <div class ="item active">STEP.4<br>注意事項</div>
+  <div class="triangle2"></div>
+  <div class = "item">STEP.5<br>完了</div>
 
 <h5>⚠︎注意事項</h5>
 キャンセル料について
+ <%= form_with model:@order,url: orders_path,method: :post do |f| %>
+ 演奏住所:<%= @order.address %>
+ <%= f.hidden_field:address, :value => @order.address %>
+ <%= f.hidden_field:customer_id, :value => @order.customer_id %>
+ <%= f.hidden_field:date, :value => @order.date %>
+ <%= f.hidden_field:, : => %>
+ <%= f.hidden_field:, : => %>
+
+ <%= f.submit "予約を確定する" %>
+<% end %>

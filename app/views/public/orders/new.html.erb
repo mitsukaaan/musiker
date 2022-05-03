@@ -1,10 +1,10 @@
-<div class ="progressbar">
-  <div class ="item active">STEP.1 <br>オーダーご入力</div>
-  <div class ="item">STEP.2<br>ご確認</div>
-  <div class ="item">STEP.3<br>注意事項</div>
-  <div class ="item">STEP.4<br>完了</div>
-</div>
-
+<<div class ="progressbar">
+  <div class ="item">STEP.1 <br>日程選択</div>
+  <div class ="item active">STEP.2<br>オーダーご入力</div>
+  <div class="triangle2"> </div>
+  <div class ="item">STEP.3<br>ご確認</div>
+  <div class ="item">STEP.4<br>注意事項</div>
+  <div class = "item">STEP.5<br>完了</div>
 
 
 
@@ -14,10 +14,10 @@
   <h5>メールアドレス:<%= current_customer.email %></h5>
   <h5>演奏希望住所(都道府県名から）:<%= f.text_field :address %></h5>
   <h5>最寄駅（◯線◯◯駅):<%= f.text_field :station %></h5>
-  <h5>日程<%= week_calendar events: @reservations do |date, reservations| %>
-        <%= date.day %>
-        <% end %>
-  </h5>
+
+  <h5>日程:<%= form_with model: @reservation do |f| %>
+            <%= f.label :day %></h5>
+
   <h5>演奏希望編成:<%= f.select :style,Order.styles.keys.map {|k| [I18n.t("enums.order.style.#{k}"), k]} %></h5>
   <h5>目的:<%= f.select :purpose,Order.purposes.keys.map {|k| [I18n.t("enums.order.purpose.#{k}"), k]} %></h5>
   <h5>リクエストの有無:<%= f.select :piece,Order.pieces.keys.map {|k| [I18n.t("enums.order.piece.#{k}"), k]} %></h5>
@@ -26,4 +26,5 @@
   　　<%= f.text_field :request %></h5>
   <h5>備考欄:<%= f.text_field :other %></h5>
   <%= f.submit"確認画面へ" %>
+<% end %>
 <% end %>
