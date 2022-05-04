@@ -18,3 +18,9 @@ ja:
     ensamble: "アンサンブル・共演"
     lesson: "習い事前の相談として"
     other: "その他（備考欄に具体的にお書きください）"
+  player:
+   instrument:
+    vn: "ヴァイオリン"
+    va: "ヴィオラ"
+    vc: "チェロ"
+    pf: "ピアノ"
