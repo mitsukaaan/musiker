@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :customers, only: [:edit,:show]
   end
-  
+
   namespace :admin do
-    resources :players, only: [:new,:index,:edit,:destroy]
-  end 
-    
+    resources :players, only: [:new,:index,:edit,:destroy,:create]
+  end
+
 
 end

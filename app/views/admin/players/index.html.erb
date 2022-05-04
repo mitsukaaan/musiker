@@ -1,0 +1,19 @@
+<h5>演奏家一覧</h5>
+
+ <table>
+   <tr>
+     <th>名前</th>
+     <th>担当楽器</th>
+     <th>自己紹介</th>
+     <th></th>
+   </tr>
+<% @players.each do |player| %>
+   <tr>
+     <td><%= player.name %></td>
+     <td><%= player.instrument_i18n %></td>
+     <td><%= player.introduction %></td>
+     <td><%= link_to "編集する" %></td>
+   </tr>
+<% end %>
+
+ </table>
