@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :players, only: [:new,:index,:edit,:destroy,:create]
+    resources :players, only: [:new,:index,:edit,:destroy,:create,:update]
   end
 
 

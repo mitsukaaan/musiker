@@ -6,7 +6,9 @@ class Public::OrdersController < ApplicationController
 
     def new
         @order = Order.new
-        #@reservations = Reservation.new
+        @reservations = Reservation.new
+        @day = params[:day]
+        @time = params[:time]
     end
 
     def confirm

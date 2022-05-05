@@ -12,7 +12,7 @@
      <td><%= player.name %></td>
      <td><%= player.instrument_i18n %></td>
      <td><%= player.introduction %></td>
-     <td><%= link_to "編集する" %></td>
+     <td><%= link_to "編集する",edit_admin_player_path(player.id) %></td>
    </tr>
 <% end %>
 

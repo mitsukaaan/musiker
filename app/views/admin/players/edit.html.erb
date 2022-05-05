@@ -1,0 +1,7 @@
+<h5>演奏家編集画面</h5>
+ <%= form_with model:@player,url:admin_player_path(@player.id),method: :patch do |f| %>
+  <%= f.text_field :name %>
+  <担当楽器：<%= f.select :instrument,Player.instruments.keys.map {|k| [I18n.t("enums.player.instrument.#{k}"),k]} %><br>
+  <%= f.text_field :introduction %>
+<%= f.submit "保存する" %>
+<% end %>

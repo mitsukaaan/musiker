@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2022_05_02_051852) do
 
   create_table "players", force: :cascade do |t|
     t.string "name", null: false
-    t.string "instrument", null: false
+    t.integer "instrument", null: false
     t.string "introduction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

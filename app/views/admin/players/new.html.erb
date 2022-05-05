@@ -1,7 +1,7 @@
 <h5>演奏家登録</h5>
 <%= form_with model:@player,url:admin_players_path,method: :post do |f| %>
  名前：<%= f.text_field:name %><br>
- 担当楽器：<%= f.select :instrument,Player.instruments.keys.map {|k| [I18n.t("enums.player.instrument.#{k}"),k]} %><br>
+ 担当楽器：<%= f.select :instrument, @arr %><br>
  自己紹介：<%= f.text_field :introduction %><br>
 <%= f.submit"登録する" %>
 <% end %>
