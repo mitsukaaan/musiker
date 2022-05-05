@@ -48,15 +48,13 @@ ActiveRecord::Schema.define(version: 2022_05_02_051852) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.date "date", null: false
-    t.string "time", null: false
     t.string "address", null: false
     t.string "station", null: false
     t.string "from_station"
-    t.string "purpose", null: false
+    t.integer "purpose", null: false
     t.string "request"
-    t.string "piece", null: false
-    t.string "style", null: false
+    t.integer "piece", null: false
+    t.integer "style", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "other"

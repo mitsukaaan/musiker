@@ -1,0 +1,5 @@
+<h5>予約一覧</h5>
+ <% @orders.each do |order| %>
+  <%= order.id %>
+  <%= link_to "詳細",admin_order_path(order.id) %>
+ <% end %>

@@ -12,6 +12,10 @@ class Public::OrdersController < ApplicationController
     end
 
     def confirm
+        @reservations = Reservation.new
+        @day = params[:day]
+        @time = params[:time]
+
         @order = Order.new(order_params)
          if params[:order][:style] =="vn_vn"||params[:order][:style] == "vn_vc"||params[:order][:style] =="vn_pf"||params[:order][:style] =="vc_pf"
              @price = 15000
@@ -24,6 +28,7 @@ class Public::OrdersController < ApplicationController
 
     def attention
         @order = Order.new(order_params)
+        @reservation = Reservation.new
     end
 
      def create

@@ -15,18 +15,26 @@
  メールアドレス:<%= current_customer.email %>
  お電話番号:<%= current_customer.telephone %>
  演奏住所:<%= @order.address %>
- <%= f.hidden_field:address, :value => @order.address %>
  最寄駅:<%= @order.station %>
 
 <h5>オーダー内容</h5>
- 日時:<%= @order.date %>
- 編成:<%= @order.style_i18n %>
- 目的:<%= @order.purpose_i18n %>
- リクエストの有無:<%= @order.piece_i18n %>
- リクエスト曲(希望の場合）:<%= @order.request %>
- 備考:<%= @order.other %>
+ 日時:<%= %> <%= @time %><br>
+ 編成:<%= @order.style_i18n %><br>
+ 目的:<%= @order.purpose_i18n %><br>
+ リクエストの有無:<%= @order.piece_i18n %><br>
+ リクエスト曲(希望の場合）:<%= @order.request %><br>
+ 備考:<%= @order.other %><br>
  <% @train_price = 1000 %>
- 料金:¥<%= @train_price + @price %>
+ 料金:¥<%= (@train_price + @price).to_s(:delimited) %><br>
+
+ <%= f.hidden_field:address, :value => @order.address %>
+ <%= f.hidden_field:customer_id, :value => @order.customer_id %>
+ <%= f.hidden_field:station, :value => @order.station %>
+ <%= f.hidden_field:purpose,:value => @order.purpose %>
+ <%= f.hidden_field:request, :value => @order.request %>
+ <%= f.hidden_field:piece, :value => @order.piece %>
+ <%= f.hidden_field:style, :value => @order.style %>
+ <%= f.hidden_field:other, :value => @order.other %>
 
 
  <%= f.submit"次の画面へ" %>

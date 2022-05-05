@@ -31,5 +31,9 @@ Rails.application.routes.draw do
     resources :players, only: [:new,:index,:edit,:destroy,:create,:update]
   end
 
+  namespace :admin do
+    resources :orders, only: [:index,:show]
+  end
+
 
 end

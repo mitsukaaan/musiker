@@ -9,12 +9,18 @@
 <h5>⚠︎注意事項</h5>
 キャンセル料について
  <%= form_with model:@order,url: orders_path,method: :post do |f| %>
- 演奏住所:<%= @order.address %>
+   <%#= form_with model:@reservation do |f| %>
+    <%#= f.hidden_field:day, :value => @reservation.day %>
+     <%#= f.hidden_field:time, :value => @reservation.time %>
+   <%#end %>
+
  <%= f.hidden_field:address, :value => @order.address %>
  <%= f.hidden_field:customer_id, :value => @order.customer_id %>
- <%= f.hidden_field:date, :value => @order.date %>
- <%= f.hidden_field:, : => %>
- <%= f.hidden_field:, : => %>
-
+ <%= f.hidden_field:station, :value => @order.station %>
+ <%= f.hidden_field:purpose,:value => @order.purpose %>
+ <%= f.hidden_field:request, :value => @order.request %>
+ <%= f.hidden_field:piece, :value => @order.piece %>
+ <%= f.hidden_field:style, :value => @order.style %>
+ <%= f.hidden_field:other, :value => @order.other %>
  <%= f.submit "予約を確定する" %>
 <% end %>
