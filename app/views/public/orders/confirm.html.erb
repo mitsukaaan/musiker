@@ -24,8 +24,10 @@
  リクエストの有無:<%= @order.piece_i18n %><br>
  リクエスト曲(希望の場合）:<%= @order.request %><br>
  備考:<%= @order.other %><br>
- <% @train_price = 1000 %>
- 料金:¥<%= (@train_price + @price).to_s(:delimited) %><br>
+
+ <% @order.total_price = @train_price + @price %><br>
+ 料金：¥<%= @order.total_price %>
+
 
  <%= f.hidden_field:address, :value => @order.address %>
  <%= f.hidden_field:customer_id, :value => @order.customer_id %>
@@ -35,6 +37,8 @@
  <%= f.hidden_field:piece, :value => @order.piece %>
  <%= f.hidden_field:style, :value => @order.style %>
  <%= f.hidden_field:other, :value => @order.other %>
+ <%= f.hidden_field:total_price, :value => @order.total_price %>
+
 
 
  <%= f.submit"次の画面へ" %>

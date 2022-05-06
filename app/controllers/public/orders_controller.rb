@@ -19,10 +19,13 @@ class Public::OrdersController < ApplicationController
         @order = Order.new(order_params)
          if params[:order][:style] =="vn_vn"||params[:order][:style] == "vn_vc"||params[:order][:style] =="vn_pf"||params[:order][:style] =="vc_pf"
              @price = 15000
+             @train_price = 2000
          elsif params[:order][:style] == "vn_vn_pf"||params[:order][:style] =="vn_vc_pf"
             @price = 20000
+            @train_price =3000
          elsif params[:order][:style] == "vn_vn_va_vc"
              @price = 25000
+             @train_price = 4000
          end
     end
 
@@ -44,6 +47,6 @@ class Public::OrdersController < ApplicationController
 
     private
     def order_params
-        params.require(:order).permit(:customer_id,:last_name,:first_name,:date,:time,:address,:station,:style,:request,:piece,:other,:purpose,:day)
+        params.require(:order).permit(:customer_id,:last_name,:first_name,:date,:time,:address,:station,:style,:request,:piece,:other,:purpose,:day,:price,:train_price,:total_price)
     end
 end
