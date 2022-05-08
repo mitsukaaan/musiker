@@ -18,7 +18,7 @@
  最寄駅:<%= @order.station %>
 
 <h5>オーダー内容</h5>
- 日時:<%= %> <%= @time %><br>
+ 日時:<%= "#{@day} #{@time}" %><br>
  編成:<%= @order.style_i18n %><br>
  目的:<%= @order.purpose_i18n %><br>
  リクエストの有無:<%= @order.piece_i18n %><br>
@@ -28,7 +28,8 @@
  <% @order.total_price = @train_price + @price %><br>
  料金：¥<%= @order.total_price %>
 
-
+ <%= f.hidden_field:day, :value => @day %>
+ <%= f.hidden_field:time, :value => @time %>
  <%= f.hidden_field:address, :value => @order.address %>
  <%= f.hidden_field:customer_id, :value => @order.customer_id %>
  <%= f.hidden_field:station, :value => @order.station %>
@@ -38,6 +39,7 @@
  <%= f.hidden_field:style, :value => @order.style %>
  <%= f.hidden_field:other, :value => @order.other %>
  <%= f.hidden_field:total_price, :value => @order.total_price %>
+
 
 
 

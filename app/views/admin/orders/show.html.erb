@@ -3,17 +3,17 @@
 <table border = "1">
   <tr>
     <td>日時</td>
-    <td></td>
+    <td><%#= @order.reservation_id.day %></td>
   </tr>
 
   <tr>
     <td>お名前</td>
-    <td></td>
+    <td><%= @order.customer.full_name %></td>
   </tr>
 
   <tr>
     <td>メールアドレス</td>
-    <td></td>
+    <td><%= @order.customer.email %></td>
   </tr>
 
   <tr>

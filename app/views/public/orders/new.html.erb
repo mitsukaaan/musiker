@@ -12,10 +12,12 @@
 
 <%= form_with model:@reservation,url:orders_confirm_path do |f| %>
   <h5>日時:<%= f.label @day %> <%= f.label @time %></h5>
-           <%= f.hidden_field:day, :value => @reservations.day %>
+
 <% end %>
 
 <%= form_with model:@order,url:orders_confirm_path do |f| %>
+<%= f.hidden_field :day, :value => @day %>
+<%= f.hidden_field :time, :value => @time %>
   <h5>お名前:<%= current_customer.last_name + current_customer.first_name%></h5>
   <h5>メールアドレス:<%= current_customer.email %></h5>
   <h5>演奏希望住所(都道府県名から）:<%= f.text_field :address %></h5>
@@ -31,5 +33,6 @@
   　　<%= f.text_field :request %></h5>
   <h5>備考欄:<%= f.text_field :other %></h5>
   <%= f.submit"確認画面へ" %>
+
 <% end %>
 <%# end %>

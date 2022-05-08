@@ -10,8 +10,8 @@
 キャンセル料について
  <%= form_with model:@order,url: orders_path,method: :post do |f| %>
    <%#= form_with model:@reservation do |f| %>
-    <%#= f.hidden_field:day, :value => @reservation.day %>
-     <%#= f.hidden_field:time, :value => @reservation.time %>
+ <%= f.hidden_field:day, :value => @day %>
+ <%= f.hidden_field:time, :value => @time %>
    <%#end %>
 
  <%= f.hidden_field:address, :value => @order.address %>
@@ -23,5 +23,6 @@
  <%= f.hidden_field:style, :value => @order.style %>
  <%= f.hidden_field:other, :value => @order.other %>
  <%= f.hidden_field:total_price, :value => @order.total_price %>
+ 
  <%= f.submit "予約を確定する" %>
 <% end %>

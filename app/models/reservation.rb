@@ -9,4 +9,6 @@ class Reservation < ApplicationRecord
   end
   reservation_data
   end
+
+  belongs_to :order
 end

@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_05_02_051852) do
     t.integer "piece", null: false
     t.integer "style", null: false
     t.integer "total_price"
+    t.integer "reservation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "other"
