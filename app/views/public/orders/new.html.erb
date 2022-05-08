@@ -10,7 +10,7 @@
 
 <h3>新規オーダー入力</h3>
 
-<%= form_with model:@reservation,url:orders_confirm_path do |f| %>
+<%= form_with model:@order,url:orders_confirm_path do |f| %>
   <h5>日時:<%= f.label @day %> <%= f.label @time %></h5>
 
 <% end %>

@@ -11,4 +11,6 @@ class Reservation < ApplicationRecord
   end
 
   belongs_to :order
+  
+  enum reservation_status: {ok: 0, ng: 1}
 end

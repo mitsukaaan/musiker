@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'orders/attention' => 'public/orders#attention'
   post 'orders/confirm' => 'public/orders#confirm'
   get 'orders/thanks' => 'public/orders#thanks'
+  get 'calendar' => 'admin/orders#calendar'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   scope module: :public do
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :orders, only: [:index,:show]
+    resources :orders, only: [:index,:show,:update]
   end
 
 end

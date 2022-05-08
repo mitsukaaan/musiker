@@ -3,5 +3,5 @@ class Order < ApplicationRecord
   enum piece: { anything:0, half_request:1, all_request:2 }
   enum purpose: { hobby:0, ensamble:1, lesson:2, other:3}
   belongs_to :customer
-  has_many :reservation
+  has_one :reservation
 end

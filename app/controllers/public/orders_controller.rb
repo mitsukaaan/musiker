@@ -39,11 +39,14 @@ class Public::OrdersController < ApplicationController
          reservation.customer_id = current_customer.id
          reservation.start_time = DateTime.parse(params[:order][:day])
          reservation.save
+         
 
          order = Order.new(order_params)
          order.customer_id = current_customer.id
          order.reservation_id = reservation.id
          order.save
+      
+
 
          redirect_to orders_thanks_path
      end

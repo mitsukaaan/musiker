@@ -39,11 +39,17 @@
             <% week.each do |day| %>
               <td>
                 <% if check_reservation(@reservations,day,time) %>
-                 <%= '×' %>
-                <% else %>
-                 <%= link_to new_order_path(day:day,time:time) do %>
-                 <%= '○' %>
-                 <% end %>
+                  <%= '×' %>
+                    <% elsif %>
+                      <% if customer_signed_in? %>
+                        <%= link_to new_order_path(day:day,time:time) do %>
+                          <%= '○' %>
+                        <% end %>
+                    <% else %>
+                      <%= form_with model:@reservation do |f| %>
+                        <%= f.select :reservation_status,Reservation.reservation_statuses.keys.map {|k| [I18n.t("enums.reservation.reservation_status.#{k}"), k]} %>
+                      <% end %>
+                    <% end %>
                 <% end %>
               </td>
             <% end %>

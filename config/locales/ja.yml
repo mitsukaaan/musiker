@@ -24,6 +24,10 @@ ja:
     va: "ヴィオラ"
     vc: "チェロ"
     pf: "ピアノ"
+  reservation:
+   reservation_status:
+    ok: "◯"
+    ng: "×"
   date:
     abbr_day_names:
       - 日
