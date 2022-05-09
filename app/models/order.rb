@@ -4,4 +4,5 @@ class Order < ApplicationRecord
   enum purpose: { hobby:0, ensamble:1, lesson:2, other:3}
   belongs_to :customer
   has_one :reservation
+  has_one_attached :image
 end
