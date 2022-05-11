@@ -6,6 +6,7 @@ class CreateReservations < ActiveRecord::Migration[6.1]
       t.bigint :customer_id, null:false
       t.datetime :start_time, null: false
       t.integer :reservation_status
+      t.integer :order_id, null: false
 
       t.timestamps
     end

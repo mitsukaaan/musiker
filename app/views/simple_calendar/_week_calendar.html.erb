@@ -41,13 +41,13 @@
                 <% if check_reservation(@reservations,day,time) %>
                   <%= '×' %>
                     <% elsif %>
-                      <% if customer_signed_in? %>
-                        <%= link_to new_order_path(day:day,time:time) do %>
-                          <%= '○' %>
+                      <% if admin_signed_in? %>
+                        <%= form_with model:@reservation do |f| %>
+                        <%= f.select :reservation_status,Reservation.reservation_statuses.keys.map {|k| [I18n.t("enums.reservation.reservation_status.#{k}"), k]} %>
                         <% end %>
                     <% else %>
-                      <%= form_with model:@reservation do |f| %>
-                        <%= f.select :reservation_status,Reservation.reservation_statuses.keys.map {|k| [I18n.t("enums.reservation.reservation_status.#{k}"), k]} %>
+                      <%= link_to new_order_path(day:day,time:time) do %>
+                        <%= '○' %>
                       <% end %>
                     <% end %>
                 <% end %>
