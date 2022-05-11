@@ -25,8 +25,8 @@
  リクエスト曲(希望の場合）:<%= @order.request %><br>
  備考:<%= @order.other %><br>
 
- <% @order.total_price = @train_price + @price %><br>
- 料金：¥<%= @order.total_price %>
+ <% @order.total_price = @train_price + @price + @request_price %><br>
+ 料金：¥<%= (@order.total_price).to_s(:delimited) %>
 
  <%= f.hidden_field:day, :value => @day %>
  <%= f.hidden_field:time, :value => @time %>
@@ -39,6 +39,9 @@
  <%= f.hidden_field:style, :value => @order.style %>
  <%= f.hidden_field:other, :value => @order.other %>
  <%= f.hidden_field:total_price, :value => @order.total_price %>
+ <%= f.hidden_field:train_price, :value => @order.train_price %>
+ <%= f.hidden_field:request_price, :value => @order.request_price %>
+
 
 
 

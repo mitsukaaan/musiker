@@ -26,6 +26,14 @@ class Public::OrdersController < ApplicationController
              @price = 25000
              @train_price = 4000
          end
+
+         if params[:order][:piece] =="anything"
+             @request_price = 0
+         elsif params[:order][:piece] == "half_request"
+             @request_price = 3000
+         elsif params[:order][:piece] == "all_request"
+             @request_price = 5000
+         end
     end
 
     def attention
@@ -39,13 +47,13 @@ class Public::OrdersController < ApplicationController
          reservation.customer_id = current_customer.id
          reservation.start_time = DateTime.parse(params[:order][:day])
          reservation.save
-         
+
 
          order = Order.new(order_params)
          order.customer_id = current_customer.id
          order.reservation_id = reservation.id
          order.save
-      
+
 
 
          redirect_to orders_thanks_path
@@ -57,6 +65,6 @@ class Public::OrdersController < ApplicationController
 
     private
     def order_params
-        params.require(:order).permit(:customer_id,:last_name,:first_name,:date,:address,:station,:style,:request,:piece,:other,:purpose,:price,:train_price,:total_price,:reservation_id)
+        params.require(:order).permit(:customer_id,:last_name,:first_name,:date,:address,:station,:style,:request,:piece,:other,:purpose,:price,:train_price,:total_price,:reservation_id,:request_price)
     end
 end

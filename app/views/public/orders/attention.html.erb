@@ -9,11 +9,9 @@
 <h5>⚠︎注意事項</h5>
 キャンセル料について
  <%= form_with model:@order,url: orders_path,method: :post do |f| %>
-   <%#= form_with model:@reservation do |f| %>
+
  <%= f.hidden_field:day, :value => @day %>
  <%= f.hidden_field:time, :value => @time %>
-   <%#end %>
-
  <%= f.hidden_field:address, :value => @order.address %>
  <%= f.hidden_field:customer_id, :value => @order.customer_id %>
  <%= f.hidden_field:station, :value => @order.station %>
@@ -23,6 +21,8 @@
  <%= f.hidden_field:style, :value => @order.style %>
  <%= f.hidden_field:other, :value => @order.other %>
  <%= f.hidden_field:total_price, :value => @order.total_price %>
+ <%= f.hidden_field:train_price, :value => @order.train_price %>
+ <%= f.hidden_field:request_price, :value => @order.request_price %>
 
  <%= f.submit "予約を確定する" %>
 <% end %>

@@ -1,11 +1,18 @@
-toppage
-<%= link_to "log in ",new_customer_session_path %>
-<%= link_to "log out",destroy_customer_session_path,method: :delete %>
-<%= link_to "reservation",selection_date_path %>
-<%= link_to "about",about_path %>
-<div class ="top">
-  Musiker
 
-
+<div class = "container">
+  <div class ="top">
+    <div class ="row.float-end">
+     <div class ="col-12 bg-secondary">
+       <p class ="link-dark"><%= link_to "log in ",new_customer_session_path %></p>
+       <p><%= link_to "log out",destroy_customer_session_path,method: :delete %></p>
+       <p><%= link_to "reservation",selection_date_path %></p>
+       <p><%= link_to "about",about_path %></p>
+     </div>
+     <div class ="col-12">
+      <p class ="text-center">
+          Musiker
+      </p>
+    </div>
+  </div>
 </div>
 

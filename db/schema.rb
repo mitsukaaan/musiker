@@ -88,8 +88,9 @@ ActiveRecord::Schema.define(version: 2022_05_09_175647) do
     t.string "request"
     t.integer "piece", null: false
     t.integer "style", null: false
-    t.integer "total_price"
+    t.integer "total_price", null: false
     t.integer "reservation_id"
+    t.integer "request_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "other"
