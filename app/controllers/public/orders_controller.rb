@@ -43,11 +43,11 @@ class Public::OrdersController < ApplicationController
     end
 
      def create
-         
+
          order = Order.new(order_params)
          order.customer_id = current_customer.id
          order.save
-         
+
          reservation = Reservation.new(
              day: Date.parse(params[:order][:day]),
              time: params[:order][:time],
@@ -60,6 +60,10 @@ class Public::OrdersController < ApplicationController
 
 
     def thanks
+    end
+
+    def index
+        @orders = Order.all
     end
 
     private

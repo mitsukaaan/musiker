@@ -7,6 +7,8 @@
       <span class="calendar-title"><%= t('simple_calendar.week', default: '1週間') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
     <% end %>
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
+
+    <% reservations = Reservation.reservations_after_three_month %>
   </div>
 
   <table class="table table-striped">
@@ -38,18 +40,18 @@
             <td><%= time %></td>
             <% week.each do |day| %>
               <td>
-                <% if check_reservation(@reservations,day,time) %>
+                <%# a = Reservation.check_reservation(reservations,day,time) %>
+                <% if Reservation.exists?(day: day.strftime("%Y-%m-%d"),time: time) %>
                   <%= '×' %>
-                    <% elsif %>
-                      <% if admin_signed_in? %>
-                        <%= form_with model:@reservation do |f| %>
-                        <%= f.select :reservation_status,Reservation.reservation_statuses.keys.map {|k| [I18n.t("enums.reservation.reservation_status.#{k}"), k]} %>
-                        <% end %>
-                    <% else %>
-                      <%= link_to new_order_path(day:day,time:time) do %>
-                        <%= '○' %>
-                      <% end %>
+                  <% if admin_signed_in? %>
+                    <%= form_with model:@reservation do |f| %>
+                      <%= f.select :reservation_status,Reservation.reservation_statuses.keys.map {|k| [I18n.t("enums.reservation.reservation_status.#{k}"), k]} %>
                     <% end %>
+                  <% end %>
+                <% else %>
+                  <%= link_to new_order_path(day:day,time:time) do %>
+                    <%= '○' %>
+                  <% end %>
                 <% end %>
               </td>
             <% end %>

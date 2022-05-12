@@ -1,4 +1,15 @@
 <div class ="container">
+  <div class ="row">
+    <div class = "col-3">
+      <%= link_to "Top", root_path %>
+    </div>
+    <div class = "col-3">
+      <%= link_to "My reservation",orders_path %>
+    </div>
+    <div class ="col-3">
+      <%= link_to "Log  out",destroy_customer_session_path %>
+    </div>
+  </div>
     <div class ="progressbar">
       <div class ="item">STEP.1 <br>日程選択</div>
       <div class ="item active">STEP.2<br>オーダーご入力</div>
@@ -6,7 +17,8 @@
       <div class ="item">STEP.3<br>ご確認</div>
       <div class ="item">STEP.4<br>注意事項</div>
       <div class = "item">STEP.5<br>完了</div>
-      
+    </div>
+
    <div class ="row">
     <h3>新規オーダー入力</h3>
      <%= form_with model:@order,url:orders_confirm_path do |f| %>

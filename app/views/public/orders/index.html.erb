@@ -1,0 +1,6 @@
+<h3>予約履歴一覧</h3>
+ <% @orders.each do |order| %>
+  <%= order.id %>
+  <%= order.reservation.day %><%= order.reservation.time %>
+  <%= order.address %>
+ <% end %>
