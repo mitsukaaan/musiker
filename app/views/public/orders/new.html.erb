@@ -1,15 +1,7 @@
 <div class ="container">
-  <div class ="row">
-    <div class = "col-4">
-      <%= link_to "Top", root_path %>
-    </div>
-    <div class = "col-4">
-      <%= link_to "My reservation",orders_path %>
-    </div>
-    <div class ="col-4">
-      <%= link_to "Log  out",destroy_customer_session_path %>
-    </div>
-  </div>
+ 
+  
+
     <div class ="progressbar">
       <div class ="item">STEP.1 <br>日程選択</div>
       <div class ="item active">STEP.2<br>オーダーご入力</div>
@@ -20,15 +12,17 @@
     </div>
 
    <div class ="row">
-    <h3>新規オーダー入力</h3>
+     <div class ="col-12">
+      <h3>新規オーダー入力</h3>
      <%= form_with model:@order,url:orders_confirm_path do |f| %><br>
         日時:<%= f.label @day %> <%= f.label @time %>
       <% end %>
        <%= form_with model:@order,url:orders_confirm_path do |f| %>
          <%= f.hidden_field :day, :value => @day %>
          <%= f.hidden_field :time, :value => @time %>
+     </div>
 
-         <div class ="col-5 d-xl-inline-block">
+         <div class ="col-4">
              お名前：<br>
              メールアドレス：<br>
              演奏希望場所：<br>
@@ -36,13 +30,15 @@
              演奏希望編成：<br>
              目的：<br>
              リクエストの有無：<br>
-             （上記で”半リクエスト”または”全リクエストを選択した方）
+             （上記で”半リクエスト”または”<br>
+             全リクエストを選択した方）<br>
              曲目を記入してください：<br>
              備考欄：<br>
+
          </div>
-        <div class ="col-7 d-xl-inline-block">
+        <div class ="col-8">
              <%= current_customer.last_name + current_customer.first_name %><br>
-             <%= current_customer.email %><br>
+             <p>メールアドレス: <%= current_customer.email %></p><br>
              <%= f.text_field :address %><br>
              <%= f.text_field :station %><br>
              <%= f.select :style,Order.styles.keys.map {|k| [I18n.t("enums.order.style.#{k}"), k]} %><br>
