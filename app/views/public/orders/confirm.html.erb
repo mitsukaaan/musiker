@@ -7,47 +7,66 @@
     <div class ="item">STEP.4<br>注意事項</div>
     <div class = "item">STEP.5<br>完了</div>
 
-   <h5>確認画面</h5>
 
-  <h5>お客様情報</h5>
- <%= form_with model:@order,url:orders_attention_path do |f|  %>
+<div class ="col-12">
+  <h5>オーダー内容確認</h5>
+           <li>
+              <label>日時：</label>
+              <%= "#{@day} #{@time}" %>
+             </li>
+             <%= form_with model:@order,url:orders_attention_path do |f|  %>
+             <li>
+               <label>演奏希望場所：</label>
+              <%= @order.address %>
+             </li>
+             <li>
+               <label>最寄駅</label>
+           　<%= @order.station %>
+             </li>
+             <li>
+               <label>演奏希望編成：</label>
+               <%= @order.style_i18n %>
+             </li>
+             <li>
+               <label>目的：</label>
+             　<%= @order.purpose_i18n %>
+             </li>
+             <li>
+               <label>リクエストの有無：</label>
+               <%= @order.piece_i18n %>
+              </li>
+             <li>
+              <label>リクエスト曲:</label>
+              <%= @order.request %>
+             </li>
+             <li>
+               <label>備考欄：</label>
+              <%= @order.other %>
+             </li>
+             <li>
+              <label>料金</label>
+              <% @order.total_price = @train_price + @price + @request_price %>
+              ¥<%= (@order.total_price).to_s(:delimited) %>
+             </li>
+               <%= f.submit"次の画面へ", class:"btn btn-primary"  %>
+               <%= link_to"オーダー入力画面へ戻る",new_order_path,class:"btn btn-secondary" %>
+                 <%= f.hidden_field:day, :value => @day %>
+                 <%= f.hidden_field:day, :value => @day %>
+                 <%= f.hidden_field:time, :value => @time %>
+                 <%= f.hidden_field:address, :value => @order.address %>
+                 <%= f.hidden_field:customer_id, :value => @order.customer_id %>
+                 <%= f.hidden_field:station, :value => @order.station %>
+                 <%= f.hidden_field:purpose,:value => @order.purpose %>
+                 <%= f.hidden_field:request, :value => @order.request %>
+                 <%= f.hidden_field:piece, :value => @order.piece %>
+                 <%= f.hidden_field:style, :value => @order.style %>
+                 <%= f.hidden_field:other, :value => @order.other %>
+                 <%= f.hidden_field:total_price, :value => @order.total_price %>
+                 <%= f.hidden_field:train_price, :value => @order.train_price %>
+                 <%= f.hidden_field:request_price, :value => @order.request_price %>
+               <% end %>
+            </li>
+    </div>
 
- お名前:<%= current_customer.last_name + current_customer.first_name %>
- メールアドレス:<%= current_customer.email %>
- お電話番号:<%= current_customer.telephone %>
- 演奏住所:<%= @order.address %>
- 最寄駅:<%= @order.station %>
 
-<h5>オーダー内容</h5>
- 日時:<%= "#{@day} #{@time}" %><br>
- 編成:<%= @order.style_i18n %><br>
- 目的:<%= @order.purpose_i18n %><br>
- リクエストの有無:<%= @order.piece_i18n %><br>
- リクエスト曲(希望の場合）:<%= @order.request %><br>
- 備考:<%= @order.other %><br>
-
- <% @order.total_price = @train_price + @price + @request_price %><br>
- 料金：¥<%= (@order.total_price).to_s(:delimited) %>
-
- <%= f.hidden_field:day, :value => @day %>
- <%= f.hidden_field:time, :value => @time %>
- <%= f.hidden_field:address, :value => @order.address %>
- <%= f.hidden_field:customer_id, :value => @order.customer_id %>
- <%= f.hidden_field:station, :value => @order.station %>
- <%= f.hidden_field:purpose,:value => @order.purpose %>
- <%= f.hidden_field:request, :value => @order.request %>
- <%= f.hidden_field:piece, :value => @order.piece %>
- <%= f.hidden_field:style, :value => @order.style %>
- <%= f.hidden_field:other, :value => @order.other %>
- <%= f.hidden_field:total_price, :value => @order.total_price %>
- <%= f.hidden_field:train_price, :value => @order.train_price %>
- <%= f.hidden_field:request_price, :value => @order.request_price %>
-
-
-
-
-
- <%= f.submit"次の画面へ" %>
- <%= link_to"オーダー入力画面へ戻る",new_order_path %>
- <% end %>
 </div>

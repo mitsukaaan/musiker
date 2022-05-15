@@ -1,6 +1,23 @@
 <h5>予約一覧</h5>
- <% @orders.each do |order| %>
-  <%= order.id %>
-  
-  <%= link_to "詳細",admin_order_path(order.id) %>
- <% end %>
+ <table border = 1>
+  <tr>
+    <th>日時</th>
+    <th>時間</th>
+    <th>オーダーID</th>
+   </tr>
+  <% @orders.each do |order| %>
+   <tr>
+    <td><%= order.reservation.day %></td>
+    <td><%= order.reservation.time %></td>
+    <td><%= link_to order.id,admin_order_path(order.id) %></td>
+   </tr>
+  <% end %>
+ </table>
+
+
+
+ 
+
+
+ 
+ 

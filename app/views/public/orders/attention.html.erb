@@ -9,7 +9,16 @@
   </div>
 
    <h5>⚠︎注意事項</h5>
-     キャンセル料について
+     <h3>キャンセル料について</h3>
+      <li>3週間前・・・なし</li>
+      <li>2週間前・・・料金の５０％</li>
+      <li>1週間前・・・料金の８０％</li>
+      <li>1週間前以降・・・料金の１００％</li>
+
+      <li>・当サイトのサービス以外のご利用を固くお断りいたします。</li>
+      <li>・当日のリクエスト曲にはお応え致しかねます。</li>
+      <li>・楽器が演奏できる環境のご準備をお願いいたします。</li>
+
       <%= form_with model:@order,url: orders_path,method: :post do |f| %>
        <%= f.hidden_field:day, :value => @day %>
        <%= f.hidden_field:time, :value => @time %>
@@ -24,6 +33,6 @@
        <%= f.hidden_field:total_price, :value => @order.total_price %>
        <%= f.hidden_field:train_price, :value => @order.train_price %>
        <%= f.hidden_field:request_price, :value => @order.request_price %>
-      <%= f.submit "予約を確定する" %>
+      <%= f.submit "予約を確定する",class:"btn btn-primary" %>
      <% end %>
 </div>

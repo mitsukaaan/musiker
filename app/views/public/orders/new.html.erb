@@ -1,7 +1,6 @@
-<div class ="container">
- 
-  
 
+
+<div class ="container">
     <div class ="progressbar">
       <div class ="item">STEP.1 <br>日程選択</div>
       <div class ="item active">STEP.2<br>オーダーご入力</div>
@@ -10,7 +9,7 @@
       <div class ="item">STEP.4<br>注意事項</div>
       <div class = "item">STEP.5<br>完了</div>
     </div>
-
+  <div class = "new">
    <div class ="row">
      <div class ="col-12">
       <h3>新規オーダー入力</h3>
@@ -21,35 +20,49 @@
          <%= f.hidden_field :day, :value => @day %>
          <%= f.hidden_field :time, :value => @time %>
      </div>
-
-         <div class ="col-4">
-             お名前：<br>
-             メールアドレス：<br>
-             演奏希望場所：<br>
-             最寄駅：<br>
-             演奏希望編成：<br>
-             目的：<br>
-             リクエストの有無：<br>
-             （上記で”半リクエスト”または”<br>
-             全リクエストを選択した方）<br>
-             曲目を記入してください：<br>
-             備考欄：<br>
-
-         </div>
-        <div class ="col-8">
-             <%= current_customer.last_name + current_customer.first_name %><br>
-             <p>メールアドレス: <%= current_customer.email %></p><br>
-             <%= f.text_field :address %><br>
-             <%= f.text_field :station %><br>
-             <%= f.select :style,Order.styles.keys.map {|k| [I18n.t("enums.order.style.#{k}"), k]} %><br>
-             <%= f.select :purpose,Order.purposes.keys.map {|k| [I18n.t("enums.order.purpose.#{k}"), k]} %><br>
-             <%= f.select :piece,Order.pieces.keys.map {|k| [I18n.t("enums.order.piece.#{k}"), k]} %><br>
-             <%= f.text_field :request %><br>
-             <%= f.text_field :other %><br>
-             <%= f.submit"確認画面へ", class:"btn btn-primary" %>
-        <% end %>
-         </div>
+     <div class ="col-12">
+             <li>
+               <label>お名前:</label>
+               <%= current_customer.last_name + current_customer.first_name %>
+             </li>
+             <li>
+               <label>メールアドレス：</label>
+               <%= current_customer.email %>
+             </li>
+             <li>
+               <label>演奏希望場所：</label>
+               <%= f.text_field :address %>
+             </li>
+             <li>
+               <label>最寄駅</label>
+               <%= f.text_field :station %>
+             </li>
+             <li>
+               <label>演奏希望編成：</label>
+               <%= f.select :style,Order.styles.keys.map {|k| [I18n.t("enums.order.style.#{k}"), k]} %>
+             </li>
+             <li>
+               <label>目的：</label>
+               <%= f.select :purpose,Order.purposes.keys.map {|k| [I18n.t("enums.order.purpose.#{k}"), k]} %>
+             </li>
+             <li>
+               <label>リクエストの有無：</label>
+               <%= f.select :piece,Order.pieces.keys.map {|k| [I18n.t("enums.order.piece.#{k}"), k]} %>
+              </li>
+             <li>
+              （上記で”半リクエスト”または”全リクエストを選択した方）<br>
+               <label>曲目を記入してください：</label>
+               <%= f.text_field :request %>
+             </li>
+             <li>
+               <label>備考欄：</label>
+               <%= f.text_field :other %><br>
+               <%= f.submit"確認画面へ", class:"btn btn-primary" %>
+        　　　　<% end %>
+            </li>
+      </div>
     </div>
+  </div>
 </div>
 
 

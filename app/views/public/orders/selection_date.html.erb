@@ -6,14 +6,10 @@
       <div class ="item">STEP.3<br>ご確認</div>
       <div class ="item">STEP.4<br>注意事項</div>
       <div class = "item">STEP.5<br>完了</div>
-
-    </div><h5>日程
-　　　
-
-        <div class ="simple_calendar">
-          <%= week_calendar events: @reservations do |date, reservations| %>
-        　　<%= date.day %>
-        　<% end %>
-        </div>
-  </h5>
+   </div>
+   <div class ="simple_calendar">
+    <%= week_calendar events: @reservations do |date, reservations| %>
+  　　<%= date.day %>
+  　<% end %>
+   </div>
 </div>

@@ -1,6 +1,28 @@
-<h3>予約履歴一覧</h3>
- <% @orders.each do |order| %>
-  <%= order.id %>
-  <%= order.reservation.day %><%= order.reservation.time %>
-  <%= order.address %>
- <% end %>
+<div class ="container">
+   <div class ="row">
+    <div class = "col-12">
+     <h3>予約履歴一覧</h3>
+    </div>
+
+    <div class ="col-12">
+     <table border = 1 center-block >
+      <tr>
+       <td>日付</td>
+       <td>時間</td>
+       <td>場所</td>
+       <td>編成</td>
+      </tr>
+      <% @orders.each do |order| %>
+      <tr>
+       <td><%= order.reservation.day %></td>
+       <td><%= order.reservation.time %></td>
+       <td><%= order.address %></td>
+       <td><%= order.style_i18n %></td>
+      </tr>
+       <% end %>
+    </div>
+     </table>
+  </div>
+</div>
+
+

@@ -4,8 +4,21 @@
 .top{
 background-image: url('top.jpg');
 background-size: contain;
-height: 900px;
-width: 100%;
+width: 1000px;
+height: 1000px;
 background-repeat: no-repeat;
 opacity: 0.5;
+}
+li {
+    list-style: none ;
+}
+label {
+    margin-right: 10px ;
+    width: 200px;
+}
+
+.musiker {
+    color: black;
+    font-size: 80px;
+    font-family: "cursive","Courgette","Permanent Marker","arial","sans-serif" ;
 }
