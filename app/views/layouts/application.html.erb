@@ -12,24 +12,44 @@
   </head>
 
   <% if customer_signed_in? %>
-    <div class ="col-12">
-     <div class ="nav">
-       <a><%= link_to "Top",root_path, style: "color: black" %></a>
-       <a><%= link_to "My page",orders_path, style: "color: black" %></a>
-       <a><%= link_to "Reservation",selection_date_path,style: "color: black" %></a>
-       <a><%= link_to "About",about_path,style: "color: black" %></a>
-       <a><%= link_to "Log out",destroy_customer_session_path,method: :delete,style: "color: black" %></a>
-      </div>
-    </div>
+  <div class = "row">
+    <div class ="col-2">
+     </div>
+     <div class ="col-2 mb-4">
+       <u><%= link_to "Top",root_path, style: "color: black" %></u>
+     </div>
+     <div class ="col-2">
+       <u><%= link_to "My page",orders_path, style: "color: black" %></u>
+     </div>
+     <div class ="col-2">
+        <u><%= link_to "Reservation",selection_date_path,style: "color: black" %></u>
+     </div>
+     <div class ="col-2">
+       <u><%= link_to "About",about_path,style: "color: black" %></u>
+     </div>
+     <div class ="col-2">
+        <u><%= link_to "Log out",destroy_customer_session_path,method: :delete,style: "color: black" %></u>
+     </div>
+  </div>
   <% else %>
-    <div class ="col-12">
-      <div class ="nav">
-           <a><%= link_to "Top",root_path, style: "color: black" %></a>
-           <a><%= link_to "Sign up",new_customer_registration_path, style: "color: black" %></a>
-           <a><%= link_to "Log in",new_customer_session_path, style: "color: black" %></a>
-           <a><%= link_to "About",about_path,style: "color: black" %></a>
+    <div class ="row">
+      <div class ="col-2">
       </div>
+      <div class ="col-2">
+       <u><%= link_to "Top",root_path, style: "color: black" %></u>
+      </div>
+      <div class ="col-2">
+       <u><%= link_to "Sign up",new_customer_registration_path, style: "color: black" %></u>
+      </div>
+      <div class ="col-2">
+       <u><%= link_to "Log in",new_customer_session_path, style: "color: black" %></u>
+      </div>
+      <div class ="col-2">
+       <u><%= link_to "About",about_path,style: "color: black" %></u>
+      </div>
+      <div class ="col-2">
     </div>
+   </div>
  <% end %>
 
 
