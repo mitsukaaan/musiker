@@ -1,23 +1,33 @@
-<h5>予約一覧</h5>
- <table border = 1>
-  <tr>
-    <th>日時</th>
-    <th>時間</th>
-    <th>オーダーID</th>
-   </tr>
-  <% @orders.each do |order| %>
-   <tr>
-    <td><%= order.reservation.day %></td>
-    <td><%= order.reservation.time %></td>
-    <td><%= link_to order.id,admin_order_path(order.id) %></td>
-   </tr>
-  <% end %>
- </table>
+<div class ="container">
+ <div class ="row justify-content-center">
+  <div class = "col-12">
+   <h3>予約一覧</h3>
+    <table border = 1>
+     <tr>
+       <th>オーダーID</th>
+       <th>日時</th>
+       <th>時間</th>
+
+       <th>住所</th>
+      </tr>
+       <% @orders.each do |order| %>
+      <tr>
+       <td><%= link_to order.id,admin_order_path(order.id) %></td>
+       <td><%= order.reservation.day %></td>
+       <td><%= order.reservation.time %></td>
+
+       <td><%= order.address %></td>
+      </tr>
+     <% end %>
+    </table>
+  </div>
+ </div>
+</div>
 
 
 
- 
 
 
- 
- 
+
+
+

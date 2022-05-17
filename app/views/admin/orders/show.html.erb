@@ -1,66 +1,62 @@
-<h5>予約詳細</h5>
+<div class ="container">
+  <div class ="row justify-content-center">
+    <div class ="col-12">
+     <h3>予約詳細</h3>
+      <table border = "1">
+        <tr>
+          <td>日時</td>
+          <td><%= @order.reservation.day %> <%= @order.reservation.time %></td>
+        </tr>
+        <tr>
+          <td>お名前</td>
+          <td><%= @order.customer.full_name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @order.customer.email %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= @order.address %></td>
+        </tr>
+        <tr>
+          <td>最寄駅</td>
+          <td><%= @order.station %></td>
+        </tr>
+        <tr>
+          <td>目的</td>
+          <td><%= @order.purpose_i18n %></td>
+        </tr>
+        <tr>
+          <td>編成</td>
+          <td><%= @order.style_i18n %></td>
+        </tr>
+        <tr>
+          <td>リクエストの有無</td>
+          <td><%= @order.piece_i18n %></td>
+        </tr>
+        <tr>
+          <td>リクエスト曲</td>
+          <td><%= @order.request %></td>
+        </tr>
+        <tr>
+          <td>備考</td>
+          <td><%= @order.other %></td>
+        </tr>
+        <tr>
+          <td>予約日時</td>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td>お支払い金額</td>
+          <td><%= @order.total_price %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 
-<table border = "1">
-  <tr>
-    <td>日時</td>
-    <td><%= @order.reservation.day %><%= @order.reservation.time %></td>
-  </tr>
 
-  <tr>
-    <td>お名前</td>
-    <td><%= @order.customer.full_name %></td>
-  </tr>
-
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= @order.customer.email %></td>
-  </tr>
-
-  <tr>
-    <td>住所</td>
-    <td><%= @order.address %></td>
-  </tr>
-
-  <tr>
-    <td>最寄駅</td>
-    <td><%= @order.station %></td>
-  </tr>
-
-  <tr>
-    <td>目的</td>
-    <td><%= @order.purpose_i18n %></td>
-  </tr>
-
-  <tr>
-    <td>編成</td>
-    <td><%= @order.style_i18n %></td>
-  </tr>
-
-  <tr>
-    <td>リクエストの有無</td>
-    <td><%= @order.piece_i18n %></td>
-  </tr>
-
-  <tr>
-    <td>リクエスト曲</td>
-    <td><%= @order.request %></td>
-  </tr>
-
-  <tr>
-    <td>備考</td>
-    <td><%= @order.other %></td>
-  </tr>
-
-  <tr>
-    <td>予約日時</td>
-    <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-  </tr>
-
-  <tr>
-    <td>お支払い金額</td>
-    <td><%= @order.total_price %></td>
-  </tr>
-</table>
 
 
 

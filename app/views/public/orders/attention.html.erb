@@ -8,16 +8,21 @@
     <div class = "item">STEP.5<br>完了</div>
   </div>
 
-   <h3>⚠注意事項画面︎</h3><br>
-     ・キャンセル料について
-      <li>3週間前・・・なし</li>
-      <li>2週間前・・・料金の５０％</li>
-      <li>1週間前・・・料金の８０％</li>
-      <li>1週間前以降・・・料金の１００％</li>
+<h3 class = "">⚠注意事項画面︎</h3><br>
+ <div class ="cancel-fee justify-content-center m-5 p-3">
+    ・キャンセル料について
+    <li>3週間前・・・なし</li>
+    <li>2週間前・・・料金の５０％</li>
+    <li>1週間前・・・料金の８０％</li>
+    <li>1週間前以降・・・料金の１００％</li>
+ </div>
+ <div class ="attention justify-content-center  m-5 p-3">
+    <li>・当サイトのサービス以外のご利用を固くお断りいたします。</li>
+    <li>・当日のリクエスト曲にはお応え致しかねます。</li>
+    <li>・楽器が演奏できる環境のご準備をお願いいたします。</li>
+ </div>
 
-      <li>・当サイトのサービス以外のご利用を固くお断りいたします。</li>
-      <li>・当日のリクエスト曲にはお応え致しかねます。</li>
-      <li>・楽器が演奏できる環境のご準備をお願いいたします。</li>
+
 
       <%= form_with model:@order,url: orders_path,method: :post do |f| %>
        <%= f.hidden_field:day, :value => @day %>
