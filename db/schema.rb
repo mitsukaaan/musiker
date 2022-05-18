@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_05_11_122447) do
     t.integer "style", null: false
     t.integer "total_price", null: false
     t.integer "request_price"
+    t.integer "payment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "other"

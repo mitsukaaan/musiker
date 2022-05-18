@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   get 'new' => 'public/homes#new'
   post 'orders/attention' => 'public/orders#attention'
   post 'orders/confirm' => 'public/orders#confirm'
+  post 'orders/payment' => 'public/orders#payment'
   get 'orders/thanks' => 'public/orders#thanks'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

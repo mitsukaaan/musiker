@@ -3,11 +3,11 @@
     <div class ="item">STEP.1 <br>日程選択</div>
     <div class ="item">STEP.2<br>オーダーご入力</div>
     <div class ="item">STEP.3<br>ご確認</div>
-    <div class ="item active">STEP.4<br>注意事項</div>
+    <div class ="item">STEP.4<br>お支払い方法</div>
+    <div class = "item active">STEP.5<br>注意事項</div>
     <div class="triangle2"></div>
-    <div class = "item">STEP.5<br>完了</div>
+    <div class ="item">STEP.6<br>完了</div>
   </div>
-
 <h3 class = "">⚠注意事項画面︎</h3><br>
  <div class ="cancel-fee justify-content-center m-5 p-3">
     ・キャンセル料について
@@ -38,6 +38,7 @@
        <%= f.hidden_field:total_price, :value => @order.total_price %>
        <%= f.hidden_field:train_price, :value => @order.train_price %>
        <%= f.hidden_field:request_price, :value => @order.request_price %>
+       <%= f.hidden_field:payment, :value => @order.payment %>
       <%= f.submit "予約を確定する",class:"btn btn-primary" %>
      <% end %>
 </div>

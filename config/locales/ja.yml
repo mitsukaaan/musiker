@@ -18,6 +18,9 @@ ja:
     ensamble: "アンサンブル・共演"
     lesson: "習い事前の相談として"
     other: "その他（備考欄に具体的にお書きください）"
+   payment:
+    card: "クレジットカード"
+    transfer: "銀行振込"
   player:
    instrument:
     vn: "ヴァイオリン"

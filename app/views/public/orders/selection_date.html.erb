@@ -1,12 +1,13 @@
 <div class ="container">
-    <div class ="progressbar">
-      <div class ="item active">STEP.1 <br>日程選択</div>
-      <div class="triangle2"></div>
-      <div class ="item">STEP.2<br>オーダーご入力</div>
-      <div class ="item">STEP.3<br>ご確認</div>
-      <div class ="item">STEP.4<br>注意事項</div>
-      <div class = "item">STEP.5<br>完了</div>
-   </div>
+  <div class ="progressbar">
+    <div class ="item active">STEP.1 <br>日程選択</div>
+     <div class="triangle2"></div>
+    <div class ="item">STEP.2<br>オーダーご入力</div>
+    <div class ="item">STEP.3<br>ご確認</div>
+    <div class ="item">STEP.4<br>お支払い方法</div>
+    <div class = "item">STEP.5<br>注意事項</div>
+    <div class ="item">STEP.6<br>完了</div>
+　</div>
    <div class ="simple_calendar">
     <%= week_calendar events: @reservations do |date, reservations| %>
   　　<%= date.day %>

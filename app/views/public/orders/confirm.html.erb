@@ -4,9 +4,9 @@
     <div class ="item">STEP.2<br>オーダーご入力</div>
     <div class ="item active">STEP.3<br>ご確認</div>
     <div class="triangle2"></div>
-    <div class ="item">STEP.4<br>注意事項</div>
-    <div class = "item">STEP.5<br>完了</div>
-
+    <div class ="item">STEP.4<br>お支払い方法</div>
+    <div class = "item">STEP.5<br>注意事項</div>
+    <div class ="item">STEP.6<br>完了</div>
 
 <div class ="col-12">
   <h3>オーダー内容確認</h3>
@@ -14,7 +14,7 @@
               <label>日時：</label>
               <%= "#{@day} #{@time}" %>
              </li>
-             <%= form_with model:@order,url:orders_attention_path do |f|  %>
+             <%= form_with model:@order,url:orders_payment_path do |f|  %>
              <li>
                <label>演奏希望場所：</label>
               <%= @order.address %>
@@ -48,7 +48,7 @@
               <% @order.total_price = @train_price + @price + @request_price %>
               ¥<%= (@order.total_price).to_s(:delimited) %>
              </li>
-               <%= f.submit"次の画面へ", class:"btn btn-primary"  %>
+               <%= f.submit"お支払い方法選択画面へ", class:"btn btn-primary"  %>
                <%= link_to"オーダー入力画面へ戻る",new_order_path,class:"btn btn-secondary" %>
                  <%= f.hidden_field:day, :value => @day %>
                  <%= f.hidden_field:day, :value => @day %>

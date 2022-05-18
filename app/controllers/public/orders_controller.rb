@@ -36,6 +36,12 @@ class Public::OrdersController < ApplicationController
          end
     end
 
+    def payment
+        @day = params[:order][:day]
+        @time = params[:order][:time]
+        @order = Order.new(order_params)
+    end
+
     def attention
         @order = Order.new(order_params)
         @day = params[:order][:day]
@@ -68,6 +74,6 @@ class Public::OrdersController < ApplicationController
 
     private
     def order_params
-        params.require(:order).permit(:customer_id,:last_name,:first_name,:date,:address,:station,:style,:request,:piece,:other,:purpose,:price,:train_price,:total_price,:reservation_id,:request_price)
+        params.require(:order).permit(:customer_id,:last_name,:first_name,:date,:address,:station,:style,:request,:piece,:other,:purpose,:price,:train_price,:total_price,:reservation_id,:request_price,:payment)
     end
 end

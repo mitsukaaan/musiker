@@ -12,6 +12,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :total_price,null: false
       t.integer :reservation_id
       t.integer :request_price
+      t.integer :payment,null: false
 
       t.timestamps
     end
