@@ -11,8 +11,19 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<% if admin_signed_in? %>
+ <div class = "container">
+    <div class ="d-flex justify-content-center m-5">
+       <u class ="m-auto"><%= link_to "Top",root_path, style: "color: black" %></u>
+       <u class ="m-auto"><%= link_to "All reservation",admin_orders_path, style: "color: black" %></u>
+       <u class ="m-auto"><%= link_to "New player",new_admin_player_path,style: "color: black" %></u>
+       <u class ="m-auto"><%= link_to "All players",admin_players_path,style: "color: black" %></u>
+       <u class ="m-auto"><%= link_to "Log out",destroy_admin_session_path,method: :delete,style: "color: black" %></u>
+    </div>
+ </div>
+<% elsif %>
   <% if customer_signed_in? %>
-  <div class = "container">
+   <div class = "container">
     <div class ="d-flex justify-content-center m-5">
        <u class ="m-auto"><%= link_to "Top",root_path, style: "color: black" %></u>
        <u class ="m-auto"><%= link_to "My page",orders_path, style: "color: black" %></u>
