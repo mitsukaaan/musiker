@@ -8,6 +8,11 @@
     <div class = "item">STEP.5<br>注意事項</div>
     <div class ="item">STEP.6<br>完了</div>
 　</div>
+　
+　<% if flash[:alert] %>
+　 <p class="text-danger"><%= flash[:alert] %></p>
+　<% end %>
+　
    <div class ="simple_calendar">
     <%= week_calendar events: @reservations do |date, reservations| %>
   　　<%= date.day %>

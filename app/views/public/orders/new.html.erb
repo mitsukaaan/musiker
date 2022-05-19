@@ -7,18 +7,14 @@
     <div class ="item">STEP.4<br>お支払い方法</div>
     <div class = "item">STEP.5<br>注意事項</div>
     <div class ="item">STEP.6<br>完了</div>
+    
    <div class ="row">
-
-     <div class ="col-12">
+    <div class ="col-12">
       <h3>新規オーダー入力</h3>
      <%= form_with model:@order,url:orders_confirm_path do |f| %><br>
         日時:<%= f.label @day %> <%= f.label @time %>
-      <% end %>
-       <%= form_with model:@order,url:orders_confirm_path do |f| %>
-         <%= f.hidden_field :day, :value => @day %>
+　　　　 <%= f.hidden_field :day, :value => @day %>
          <%= f.hidden_field :time, :value => @time %>
-     </div>
-     <div class ="col-12">
              <li>
                <label>お名前:</label>
                <%= current_customer.last_name + current_customer.first_name %>

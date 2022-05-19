@@ -7,24 +7,27 @@
     <div class="triangle2"></div>
     <div class = "item">STEP.5<br>注意事項</div>
     <div class ="item">STEP.6<br>完了</div>
+<div class ="row">
+    <div class ="col-12">
+        料金：<%= @order.total_price %>
+            <%= form_with model:@order,url:orders_attention_path do |f| %>
+            お支払い方法：<%= f.select :payment,Order.payments.keys.map {|k| [I18n.t("enums.order.payment.#{k}"), k]} %><br>
+             <%= f.submit"次の画面へ",class: "btn btn-primary" %>
+               <%= f.hidden_field:day, :value => @day %>
+               <%= f.hidden_field:day, :value => @day %>
+               <%= f.hidden_field:time, :value => @time %>
+               <%= f.hidden_field:address, :value => @order.address %>
+               <%= f.hidden_field:customer_id, :value => @order.customer_id %>
+               <%= f.hidden_field:station, :value => @order.station %>
+               <%= f.hidden_field:purpose,:value => @order.purpose %>
+               <%= f.hidden_field:request, :value => @order.request %>
+               <%= f.hidden_field:piece, :value => @order.piece %>
+               <%= f.hidden_field:style, :value => @order.style %>
+               <%= f.hidden_field:other, :value => @order.other %>
+               <%= f.hidden_field:total_price, :value => @order.total_price %>
+               <%= f.hidden_field:train_price, :value => @order.train_price %>
+               <%= f.hidden_field:request_price, :value => @order.request_price %>
 
-料金：<%= @order.total_price %>
-<%= form_with model:@order,url:orders_attention_path do |f| %>
-お支払い方法：<%= f.select :payment,Order.payments.keys.map {|k| [I18n.t("enums.order.payment.#{k}"), k]} %>
- <%= f.submit"次の画面へ",class: "btn btn-primary" %>
-   <%= f.hidden_field:day, :value => @day %>
-   <%= f.hidden_field:day, :value => @day %>
-   <%= f.hidden_field:time, :value => @time %>
-   <%= f.hidden_field:address, :value => @order.address %>
-   <%= f.hidden_field:customer_id, :value => @order.customer_id %>
-   <%= f.hidden_field:station, :value => @order.station %>
-   <%= f.hidden_field:purpose,:value => @order.purpose %>
-   <%= f.hidden_field:request, :value => @order.request %>
-   <%= f.hidden_field:piece, :value => @order.piece %>
-   <%= f.hidden_field:style, :value => @order.style %>
-   <%= f.hidden_field:other, :value => @order.other %>
-   <%= f.hidden_field:total_price, :value => @order.total_price %>
-   <%= f.hidden_field:train_price, :value => @order.train_price %>
-   <%= f.hidden_field:request_price, :value => @order.request_price %>
-   <%= f.hidden_field:payment, :value => @order.payment %>
-<% end %>
+            <% end %>
+    </div>
+</div>

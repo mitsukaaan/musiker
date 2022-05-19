@@ -21,8 +21,8 @@
     <li>・当日のリクエスト曲にはお応え致しかねます。</li>
     <li>・楽器が演奏できる環境のご準備をお願いいたします。</li>
  </div>
-
-
+  <%= check_box_tag :agree %>
+  <%= label_tag :agree, "上記に同意して予約する" %>
 
       <%= form_with model:@order,url: orders_path,method: :post do |f| %>
        <%= f.hidden_field:day, :value => @day %>

@@ -5,6 +5,9 @@ class Public::OrdersController < ApplicationController
     end
 
     def new
+        if params[:day].to_date < Time.current.next_month || params[:day].to_date > Time.current.since(3.month)
+          redirect_to :selection_date, alert: "予約可能な日時は１ヶ月後以降,３ヶ月以内です"
+        end
         @order = Order.new
         @reservations = Reservation.new
         @day = params[:day]
