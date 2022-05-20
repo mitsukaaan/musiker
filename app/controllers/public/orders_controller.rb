@@ -73,6 +73,7 @@ class Public::OrdersController < ApplicationController
 
     def index
         @orders = Order.all
+        @customer = current_customer
     end
 
     private

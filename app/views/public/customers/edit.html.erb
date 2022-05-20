@@ -1,8 +1,11 @@
 <div class ="container">
   <div class ="row">
-    <%= form_with model:@customer do |f| %>
-     姓：<%= f.text_field: last_name %>
-     名：<%= f.text_field: first_name %>
-    <% end %>
+    <%= form_with model:@customer, do |f| %>
+         姓：<%= f.text_field: last_name %>
+         名：<%= f.text_field: first_name %>
+         メールアドレス：<%= f.text_field: email %>
+         電話番号：<%= f.text_field: telephone %>
+    <%= f.submit"変更する" %>
+   <% end %>
   </div>
 </div>

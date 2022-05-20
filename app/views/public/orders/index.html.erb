@@ -1,27 +1,48 @@
 <div class ="container">
    <div class ="row justify-content-center">
-    <div class = "col-12">
-     <h3>予約履歴一覧</h3>
-    </div>
 
-    <div class ="col-12">
-     <table border = 1 center-block >
-      <tr>
-       <td>日付</td>
-       <td>時間</td>
-       <td>住所</td>
-       <td>編成</td>
-      </tr>
-      <% @orders.each do |order| %>
-      <tr>
-       <td><%= order.reservation.day %></td>
-       <td><%= order.reservation.time %></td>
-       <td><%= order.address %></td>
-       <td><%= order.style_i18n %></td>
-      </tr>
-       <% end %>
-    </div>
-     </table>
+
+       <div class ="col-12">
+        <h3>予約履歴一覧</h3>
+          <table border = 1 center-block >
+           <tr>
+            <td>日付</td>
+            <td>時間</td>
+            <td>住所</td>
+            <td>編成</td>
+           </tr>
+           <% @orders.each do |order| %>
+           <tr>
+            <td><%= order.reservation.day %></td>
+            <td><%= order.reservation.time %></td>
+            <td><%= order.address %></td>
+            <td><%= order.style_i18n %></td>
+           </tr>
+            <% end %>
+         </table>
+
+         <h3>基本情報</h3><%= link_to"編集する",edit_customer_path(@customer.id), class:"btn btn-success" %>
+         　<table border = 1>
+         　 <tr>
+             <td>姓</td>
+             <td><%= @customer.last_name %></td>
+         　 </tr>
+         　<tr>
+            <td>名</td>
+          　<td><%= @customer.first_name %></td>
+         　</tr>
+         　<tr>
+           　<td>メールアドレス</td>
+           　<td><%= @customer.email %></td>
+         　</tr>
+         　<tr>
+             <td>電話番号</td>
+             <td><%= @customer.telephone %></td>
+         　</tr>
+         　</table>
+       </div>
+
+
   </div>
 </div>
 
