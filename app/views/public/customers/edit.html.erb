@@ -1,11 +1,30 @@
 <div class ="container">
-  <div class ="row">
-    <%= form_with model:@customer, do |f| %>
-         姓：<%= f.text_field: last_name %>
-         名：<%= f.text_field: first_name %>
-         メールアドレス：<%= f.text_field: email %>
-         電話番号：<%= f.text_field: telephone %>
-    <%= f.submit"変更する" %>
-   <% end %>
+  <div class ="row justify-content-center">
+    <div class ="col-5">
+      <%= form_with model: @customer,url: customer_path(@customer.id),method: :patch do |f| %>
+
+         <li>
+           <label>姓：</label>
+           <%= f.text_field :last_name %>
+         </li>
+
+         <li>
+           <label>名：</label>
+           <%= f.text_field :first_name %>
+         </li>
+
+         <li>
+           <label>メールアドレス：</label>
+           <%= f.text_field :email %>
+         </li>
+
+         <li>
+           <label>電話番号：</label>
+           <%= f.text_field :telephone %>
+         </li>
+
+        <%= f.submit"変更する",class:"btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -15,11 +15,6 @@ class Reservation < ApplicationRecord
 
   belongs_to :order
 
-  enum reservation_status: {ok: 0, ng: 1}
-
-  #validate :date_one_month_start
-  #validate :date_two_month_end
-
   private
 
   def date_one_month_start

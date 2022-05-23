@@ -18,16 +18,16 @@ Rails.application.routes.draw do
   post 'orders/confirm' => 'public/orders#confirm'
   post 'orders/payment' => 'public/orders#payment'
   get 'orders/thanks' => 'public/orders#thanks'
-
+  patch 'customers/:id' => 'public/customers#update'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   scope module: :public do
-    resources :orders, only: [:new,:index,:show,:edit,:create]
+    resources :orders, only: [:new,:index,:edit,:create]
   end
 
   scope module: :public do
-    resources :customers, only: [:edit,:show]
+    resources :customers, only: [:edit,:update]
   end
 
   namespace :admin do

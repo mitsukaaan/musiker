@@ -1,21 +1,29 @@
-<h5>演奏家一覧</h5>
+<div class ="container">
+  <div class ="row justify-content-center">
+    <div class ="col-8">
+     <h3>演奏家一覧</h3>
+       <table border = "1">
 
- <table border = "1">
-   <tr>
-     <th>ID</th>
-     <th>名前</th>
-     <th>担当楽器</th>
-     <th>自己紹介</th>
-     <th></th>
-   </tr>
-<% @players.each do |player| %>
-   <tr>
-     <td><%= player.id %></td>
-     <td><%= player.name %></td>
-     <td><%= player.instrument_i18n %></td>
-     <td><%= player.introduction %></td>
-     <td><%= link_to "編集する",edit_admin_player_path(player.id) %></td>
-   </tr>
-<% end %>
+         <tr>
+           <th>ID</th>
+           <th>名前</th>
+           <th>担当楽器</th>
+           <th>自己紹介</th>
+           <th></th>
+         </tr>
 
- </table>
+        <% @players.each do |player| %>
+         <tr>
+           <td><%= player.id %></td>
+           <td><%= player.name %></td>
+           <td><%= player.instrument_i18n %></td>
+           <td><%= player.introduction %></td>
+           <td><%= link_to "編集する",edit_admin_player_path(player.id) %></td>
+         </tr>
+        <% end %>
+       </table>
+    </div>
+  </div>
+</div>
+
+

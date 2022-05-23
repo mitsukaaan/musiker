@@ -4,7 +4,10 @@ class Public::CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
     end
 
-    def show
+    def update
+        customer = Customer.find(params[:id])
+        customer.update(customer_params)
+        redirect_to orders_path
     end
 
     private
