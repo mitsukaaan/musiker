@@ -2,7 +2,7 @@ class Calendar < ApplicationRecord
 end
 
 
-Calender table
-year integr
-month integr
-day array→json
+#Calender table
+#year integr
+#month integr
+#day array→json
